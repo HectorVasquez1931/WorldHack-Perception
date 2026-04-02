@@ -1,0 +1,573 @@
+:root {
+  --blanco: #ffffff;
+  --gris: #191a19;
+  --negro: #000000;
+  --rojo: #d90000;
+  --verde: #38b000;
+  --verde-brillante: #39ff14;
+}
+
+/* ----------------------------------------- FONDO ----------------------------------------- */
+body {
+  background: var(--gris);
+  color: var(--blanco);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.page-avatar::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 60vw;
+  height: 60vh;
+
+  background: url("../assets/img/persona.png") no-repeat center;
+  background-size: contain;
+
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ---------------------------------------- TEXT ---------------------------------------- */
+.title {
+  font-family: "Tomorrow";
+  font-weight: bold;
+  color: var(--verde-brillante);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.subtitle {
+  font-family: "Quantico";
+  font-weight: bold;
+  text-align: left;
+  margin-top: 5vh;
+  margin-bottom: 0;
+}
+
+.subtitle-2 {
+  font-family: "Tomorrow";
+  font-weight: bold;
+  color: var(--rojo);
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.title-simple {
+  font-family: "Quantico";
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0%;
+}
+
+.subtext {
+  font-family: "PT Sans";
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  color: var(--rojo);
+}
+
+.text-simple {
+  font-family: "PT Sans";
+  text-align: left;
+  margin-top: 0%;
+  margin-bottom: 2vh;
+}
+
+/* ----------------------------------------- form1 ----------------------------------------- */
+/* opciopnes del formulario */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Tomorrow";
+  color: var(--blanco);
+}
+
+.ojos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0px 0px;
+}
+
+/* OCULTAR RADIO ORIGINAL */
+.option input {
+  display: none;
+}
+
+/* CIRCULOs form 1 */
+.option span {
+  width: 18px;
+  height: 18px;
+  border: 0.4vh solid var(--rojo);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* SELECCIONADO */
+.option input:checked+span {
+  background: var(--verde);
+}
+
+/* BOTONES */
+.buttons {
+  margin-top: 7vh;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-family: "Tomorrow";
+  font-weight: bold;
+  text-align: center;
+}
+
+#btn-siguiente {
+  background: var(--rojo);
+  color: var(--blanco);
+  transition: 0.3s;
+}
+
+/* Cuando este completo */
+#btn-siguiente.active {
+  background: var(--verde);
+}
+
+#skip-btn {
+  background: var(--verde);
+  color: var(--blanco);
+}
+
+.buttons button[type="submit"] {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+
+/* ----------------------------------------- form2 ----------------------------------------- */
+.form-open {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* inputs form2 */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  font-family: "Quantico", sans-serif;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* INPUT BASE //texto verde*/
+.input-group input {
+  background: transparent;
+  border: 7px solid var(--verde);
+  border-radius: 8px !important;
+  padding: 10px;
+  color: var(--verde);
+  outline: none;
+  transition: 0.3s;
+  font-family: "Tomorrow";
+  height: 4vw;
+}
+
+/* PLACEHOLDER */
+.input-group input::placeholder {
+  color: var(--verde);
+  opacity: 0.7;
+  font-family: "Tomorrow";
+}
+
+/* LABEL dentro del input */
+.input-group.floating label {
+  background: var(--gris);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 1;
+  color: var(--blanco);
+  pointer-events: none;
+  font-family: "Quantico";
+  font-weight: bold;
+}
+
+/* OCULTAR PLACEHOLDER */
+.input-group.floating input::placeholder {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/* CUANDO ACTIVO */
+.input-group.floating.active input::placeholder {
+  opacity: 0.7;
+}
+
+/* BOTÓN */
+.btn-create {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+  background: var(--verde);
+  color: var(--blanco);
+  width: 100%;
+  padding: 12px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-family: "Tomorrow";
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ESTADO VACÍO (ROJO) */
+.input-group input.empty {
+  border-color: var(--rojo);
+  color: var(--rojo);
+}
+
+.input-group input.empty::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ESTADO LLENO (VERDE) */
+.input-group input.filled {
+  border-color: var(--verde);
+  color: var(--verde);
+}
+
+/* ----------------------------------------- carga ----------------------------------------- */
+
+.loading-screen {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.progress-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.segment-big {
+  width: 30vw;
+  height: 5vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.segment {
+  width: 10vw;
+  height: 5vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+/* Clase que aplicaremos con Anime.js */
+.segment.active {
+  background-color: var(--verde);
+  box-shadow:
+    0 0 15px var(--verde),
+    0 0 5px var(--blanco);
+}
+
+.step-text {
+  color: var(--rojo);
+  font-family: "Tomorrow";
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.desc-text {
+  color: var(--blanco);
+  font-family: "Quantico";
+}
+
+.tips {
+  color: var(--blanco);
+  font-family: "PT Sans";
+  margin-top: 50px;
+}
+
+/* ----------------------------------- generacionAvatar ----------------------------------- */
+
+/* RECTÁNGULO FORM3*/
+.avatar-box {
+  width: 300px;
+  aspect-ratio: 1 / 1;
+  background: var(--blanco);
+  border: 6px solid var(--verde);
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 7vh auto;
+}
+
+.avatar-box2 {
+  width: 10vh;
+  aspect-ratio: 1 / 1;
+
+  background: var(--blanco);
+  border: 6px solid var(--verde);
+  border-radius: 50%;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.avatar-box2 .avatar-main {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* IMAGEN ENCIMA box1*/
+.avatar-main {
+  position: absolute;
+  width: 100%;
+  border-radius: 14px;
+  object-fit: contain;
+}
+
+.bottom-ui {
+  /*engloba los 3 elementos de abajo*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-icon {
+  background: var(--rojo);
+  color: var(--blanco);
+  border: none;
+
+  width: 7rem;
+  height: 70px;
+
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+/* RECTANGULO */
+
+.dialog-box {
+  background: var(--blanco);
+  border: 6px solid var(--gris);
+  /* borde interno */
+  border-radius: 15px;
+  padding: 3px 30px;
+  min-width: 320px;
+
+  box-shadow: 0 0 0 6px var(--verde);
+  /* borde externo */
+}
+
+.dialog-box .title {
+  color: var(--rojo);
+  font-family: "Quantico";
+  font-weight: bold;
+  text-align: left;
+  display: block;
+}
+
+.dialog-box p {
+  color: var(--negro);
+  font-family: "Pt Sans";
+  text-align: left;
+  margin: 0;
+}
+
+.btn-skip {
+  background: var(--rojo);
+  color: var(--blanco);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-family: "Quantico";
+  font-size: 40px;
+}
+
+.buttons button[type="submit"]:hover {
+  background: #8b0000;
+  color: var(--blanco);
+}
+
+.input-group.floating {
+  position: relative;
+}
+
+/* TÍTULOS */
+#player-form .col-lg-3:first-child h4 {
+  margin-left: 0;
+}
+
+/* OPCIONES */
+#player-form .col-lg-3:first-child .option {
+  margin-left: 0;
+}
+
+/* ------------------------------------- leerPersonaje ------------------------------------- */
+
+.avatar-box-est {
+  width: 300px;
+  aspect-ratio: 1 / 1;
+  background: var(--blanco);
+  border: 6px solid var(--verde);
+  border-radius: 20px;
+  position: relative;
+  /* CLAVE */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5vh;
+}
+
+.trofeo {
+  width: 40px;
+  height: 40px;
+  background: #ccc;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* TOOLTIP */
+.trofeo::after {
+  content: attr(data-desc);
+
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: var(--blanco);
+  color: var(--negro);
+
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  font-family: "PT Sans";
+  font-size: 0.8rem;
+
+  white-space: normal;
+  width: max-content;
+  max-width: 440%;
+  text-align: center;
+  /* se adapta al texto */
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+/* FLECHITA */
+.trofeo::before {
+  content: "";
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-width: 6px;
+  border-style: solid;
+  border-color: #000 transparent transparent transparent;
+
+  opacity: 0;
+  transition: 0.2s;
+}
+
+/* HOVER */
+.trofeo:hover::after,
+.trofeo:hover::before {
+  opacity: 1;
+}
+
+.contenedor-trofeos {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 15px;
+}
+
+.barra-contenedor {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  margin-bottom: 3vh;
+}
+
+/* BARRA */
+.barra {
+  position: relative;
+  height: 40px;
+  border-radius: 25px;
+  padding: 5px;
+  background: linear-gradient(to right, var(--verde), var(--rojo)) border-box;
+  /* borde */
+
+  border: 3px solid transparent;
+}
+
+/* GRADIENTE INTERNO */
+.barra::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 20px;
+
+  background: linear-gradient(to right, var(--blanco), var(--negro));
+}
+
+/* INDICADOR (SOMBRERO) */
+.indicador {
+  height: 70%;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  margin-top: 20px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+}
+
+.stat-item {
+  border-radius: 10px;
+}
